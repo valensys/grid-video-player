@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/io/qt/filenameprovider">
+    <file alias="qmldir">/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/io/qt/filenameprovider/qmldir</file>
+  </qresource>
+</RCC>
+

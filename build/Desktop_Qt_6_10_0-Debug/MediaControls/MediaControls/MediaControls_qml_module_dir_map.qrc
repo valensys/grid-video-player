@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/MediaControls">/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/MediaControls/MediaControls</file>
+
+  </qresource>
+</RCC>
