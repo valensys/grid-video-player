@@ -1,12 +1,6 @@
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/MediaPlayerApp.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/MediaPlayerApp_qmltyperegistration.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/all_qmltyperegistrations.dir
-/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/MediaPlayerApp_qmllint.dir
-/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/MediaPlayerApp_qmllint_json.dir
-/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/MediaPlayerApp_qmllint_module.dir
-/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/all_qmllint.dir
-/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/all_qmllint_json.dir
-/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/all_qmllint_module.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/MediaPlayerApp_copy_qml.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/MediaPlayerApp_copy_res.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/CMakeFiles/generate_qmlls_build_ini_file.dir
@@ -30,6 +24,9 @@
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/Config_qmllint.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/Config_qmllint_json.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/Config_qmllint_module.dir
+/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/all_qmllint.dir
+/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/all_qmllint_json.dir
+/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/all_qmllint_module.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/Config_resources_2.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/Config_copy_qml.dir
 /home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/CMakeFiles/Config_copy_res.dir
