@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/Config">
-    <file alias="qmldir">/home/vlv/Qt/Examples/Qt-6.10.0/demos/mediaplayer/build/Desktop_Qt_6_10_0-Debug/Config/Config/qmldir</file>
-  </qresource>
-</RCC>
-

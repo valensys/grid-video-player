@@ -1,5 +1,0 @@
-module io.qt.filenameprovider
-typeinfo MediaPlayerApp.qmltypes
-prefer :/qt/qml/io/qt/filenameprovider/
-depends QtQuick
-
