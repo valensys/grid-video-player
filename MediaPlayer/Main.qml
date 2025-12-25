@@ -26,10 +26,15 @@ ApplicationWindow {
     property alias playlistLooped: playbackControl.isPlaylistLooped
     property alias metadataInfo: settingsInfo.metadataInfo
     property alias tracksInfo: settingsInfo.tracksInfo
+    property bool multiVideoMode: false
 
     function playMedia() {
-        mediaPlayer.source = playlistInfo.getSource()
-        mediaPlayer.play()
+        if (multiVideoMode) {
+            multiVideoView.playAll()
+        } else {
+            mediaPlayer.source = playlistInfo.getSource()
+            mediaPlayer.play()
+        }
     }
 
     function closeOverlays() {
@@ -43,10 +48,25 @@ ApplicationWindow {
     }
 
     function openFile(path) {
+        multiVideoMode = false
         ++currentFile
         playlistInfo.addFile(currentFile, path)
         mediaPlayer.source = path
         mediaPlayer.play()
+    }
+
+    function openMultipleFiles(files) {
+        // Limit to 4 files and filter to only video files
+        var videoFiles = []
+        for (var i = 0; i < Math.min(4, files.length); i++) {
+            videoFiles.push(files[i])
+        }
+        multiVideoMode = true
+        multiVideoView.setVideoSources(videoFiles)
+        // Play will be triggered after sources are set
+        Qt.callLater(function() {
+            multiVideoView.playAll()
+        })
     }
 
     MouseArea {
@@ -92,7 +112,7 @@ ApplicationWindow {
         font.pixelSize: 24
         color: Config.secondaryColor
         anchors.centerIn: parent
-        visible: !errorPopup.visible && !videoOutput.visible && !defaultCoverArt.visible
+        visible: !errorPopup.visible && !videoOutput.visible && !defaultCoverArt.visible && !root.multiVideoMode
 
         TapHandler {
             onTapped: menuBar.openFileMenu.open()
@@ -108,6 +128,7 @@ ApplicationWindow {
         visible: !videoOutput.fullScreen
 
         onFileOpened: (path) => root.openFile(path)
+        onMultipleFilesOpened: (files) => root.openMultipleFiles(files)
 
         nameFilters : root.nameFilters
         selectedNameFilter : root.selectedNameFilter
@@ -188,7 +209,7 @@ ApplicationWindow {
         anchors.right: parent.right
         anchors.leftMargin: fullScreen ? 0 : 20
         anchors.rightMargin: fullScreen ? 0 : 20
-        visible: mediaPlayer.hasVideo
+        visible: mediaPlayer.hasVideo && !root.multiVideoMode
 
         property bool fullScreen: false
 
@@ -205,6 +226,20 @@ ApplicationWindow {
                 root.closeOverlays()
             }
         }
+    }
+
+    MultiVideoView {
+        id: multiVideoView
+
+        anchors.top: Config.isMobileTarget ? parent.top : menuBar.bottom
+        anchors.bottom: playbackControl.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.topMargin: 20
+        anchors.bottomMargin: 0
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        visible: root.multiVideoMode
     }
 
     Image {
@@ -238,6 +273,7 @@ ApplicationWindow {
         anchors.right: videoOutput.right
         anchors.bottom: playbackControl.top
         mediaPlayer: mediaPlayer
+        visible: !root.multiVideoMode
 
         fullScreenButton.onClicked: {
             if (mediaPlayer.hasVideo) {
@@ -257,10 +293,11 @@ ApplicationWindow {
         anchors.right: parent.right
 
         mediaPlayer: mediaPlayer
-        isPlaylistVisible: playlistInfo.visible
+        multiVideoView: root.multiVideoMode ? multiVideoView : null
+        isPlaylistVisible: playlistInfo.visible && !root.multiVideoMode
 
         onPlayNextFile: {
-            if (playlistInfo.mediaCount) {
+            if (!root.multiVideoMode && playlistInfo.mediaCount) {
                 if (!playlistInfo.isShuffled){
                     ++root.currentFile
                     if (root.currentFile > playlistInfo.mediaCount - 1 && root.playlistLooped) {
@@ -275,7 +312,7 @@ ApplicationWindow {
         }
 
         onPlayPreviousFile: {
-            if (playlistInfo.mediaCount) {
+            if (!root.multiVideoMode && playlistInfo.mediaCount) {
                 if (!playlistInfo.isShuffled){
                     --root.currentFile
                     if (root.currentFile < 0 && isPlaylistLooped) {

@@ -11,6 +11,7 @@ qt_add_qml_module(MediaPlayer
         "Main.qml"
         "Images.qml"
         "MetadataInfo.qml"
+        "MultiVideoView.qml"
         "PlayerMenuBar.qml"
         "TracksInfo.qml"
         "TracksOptions.qml"

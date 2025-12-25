@@ -12,12 +12,21 @@ Item {
     implicitHeight: 100
 
     required property MediaPlayer mediaPlayer
-    readonly property int mediaPlayerState: root.mediaPlayer.playbackState
+    readonly property int mediaPlayerState: {
+        if (multiVideoView && multiVideoView.mediaPlayers && multiVideoView.mediaPlayers.length > 0) {
+            var firstPlayer = multiVideoView.mediaPlayers[0]
+            if (firstPlayer) {
+                return firstPlayer.playbackState
+            }
+        }
+        return root.mediaPlayer.playbackState
+    }
     property bool isPlaylistShuffled: false
     property bool isPlaylistLooped: false
     property bool isPlaylistVisible: false
     property url playlistIcon: !root.isPlaylistVisible ? ControlImages.iconSource("Playlist_Icon") : ControlImages.iconSource("Playlist_Active", false)
     property url shuffleIcon: !root.isPlaylistShuffled ? ControlImages.iconSource("Shuffle_Icon") : ControlImages.iconSource("Shuffle_Active", false)
+    property var multiVideoView: null
 
     property alias volume: audio.volume
     property alias playbackRate: rate.playbackRate
@@ -26,6 +35,22 @@ Item {
 
     signal playNextFile()
     signal playPreviousFile()
+    
+    function playMedia() {
+        if (multiVideoView) {
+            multiVideoView.playAll()
+        } else {
+            mediaPlayer.play()
+        }
+    }
+    
+    function pauseMedia() {
+        if (multiVideoView) {
+            multiVideoView.pauseAll()
+        } else {
+            mediaPlayer.pause()
+        }
+    }
 
     function changeLoopMode() {
         if (root.mediaPlayer.loops === 1 && !root.isPlaylistLooped) {
@@ -93,13 +118,13 @@ Item {
                 CustomButton {
                     id: playButton
                     icon.source: ControlImages.iconSource("Play_Icon", false)
-                    onClicked: root.mediaPlayer.play()
+                    onClicked: root.playMedia()
                 }
 
                 CustomButton {
                     id: pausedButton
                     icon.source: ControlImages.iconSource("Stop_Icon", false)
-                    onClicked: root.mediaPlayer.pause()
+                    onClicked: root.pauseMedia()
                 }
 
                 CustomButton {
