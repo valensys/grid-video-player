@@ -22,8 +22,6 @@ qt_add_qml_module(MediaPlayer
         "ErrorPopup.qml"
         "TouchMenu.qml"
     RESOURCES
-        "icons/Shadow.png"
-        "icons/Shadow@2x.png"
         "icons/Default_CoverArt.svg"
         "icons/Movie_Active.svg"
         "icons/Movie_Icon_Dark.svg"

@@ -166,7 +166,6 @@ ApplicationWindow {
             id: audio
             volume: playbackControl.volume
         }
-        source: new URL("https://download.qt.io/learning/videos/media-player-example/Qt_LogoMergeEffect.mp4")
 
         function updateMetadata() {
             root.metadataInfo.clear()
@@ -258,13 +257,6 @@ ApplicationWindow {
         anchors.top: seeker.opacity ? seeker.top : playbackControl.top
         color: Config.mainColor
         opacity: videoOutput.fullScreen ? 0.75 : 0.5
-    }
-
-    Image {
-        id: shadow
-        source: `icons/Shadow.png`
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     PlaybackSeekControl {
