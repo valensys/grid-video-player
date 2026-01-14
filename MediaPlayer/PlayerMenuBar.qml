@@ -13,8 +13,10 @@ Item {
     implicitHeight: menuBar.height
 
     signal fileOpened(path: url)
+    signal multipleFilesOpened(var files)
 
     property alias openFileMenu: fileDialog
+    property alias openMultipleFilesMenu: multipleFilesDialog
     property alias openUrlPopup: urlPopup
     property list<string> nameFilters
     property int selectedNameFilter
@@ -26,6 +28,16 @@ Item {
         selectedNameFilter.index: root.selectedNameFilter
         title: qsTr("Please choose a file")
         onAccepted: root.fileOpened(fileDialog.selectedFile)
+    }
+
+    FileDialog {
+        id: multipleFilesDialog
+        currentFolder: StandardPaths.standardLocations(StandardPaths.MoviesLocation)[0]
+        nameFilters: root.nameFilters
+        selectedNameFilter.index: root.selectedNameFilter
+        fileMode: FileDialog.OpenFiles
+        title: qsTr("Please choose up to 4 video files")
+        onAccepted: root.multipleFilesOpened(multipleFilesDialog.selectedFiles)
     }
 
     UrlPopup {
@@ -55,6 +67,10 @@ Item {
             MenuItem {
                 text: qsTr("Open &File")
                 onTriggered: fileDialog.open()
+            }
+            MenuItem {
+                text: qsTr("Open &Multiple Videos")
+                onTriggered: multipleFilesDialog.open()
             }
             MenuItem {
                 text: qsTr("Open &URL")
