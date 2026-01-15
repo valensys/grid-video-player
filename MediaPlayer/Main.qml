@@ -17,7 +17,7 @@ ApplicationWindow {
     minimumWidth: 640
     visible: true
     color: Config.mainColor
-    title: qsTr("Multimedia Player")
+    title: qsTr("Grid Video Player")
     required property url source
     required property list<string> nameFilters
     required property int selectedNameFilter

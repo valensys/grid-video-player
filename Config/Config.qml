@@ -13,7 +13,7 @@ QtObject {
     property int activeTheme : Config.Theme.Dark
 
     readonly property bool isMobileTarget : Qt.platform.os === "android" || Qt.platform.os === "ios"
-    readonly property color mainColor : activeTheme ? "#09102B" : "#FFFFFF"
+    readonly property color mainColor : activeTheme ? '#5c5e64' : "#FFFFFF"
     readonly property color secondaryColor : activeTheme ? "#FFFFFF" : "#09102B"
     readonly property color highlightColor : "#41CD52"
 
