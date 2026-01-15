@@ -1,15 +1,15 @@
 # Grid video player
 
-Main purpose is to play same video file, which was processed with different algorithms like: AI tools, CV algorithms, filters, etc.
+Its main purpose is to play same video file, which was processed with different algorithms like: AI tools, CV algorithms, filters, etc.
 
-If we processed same video file in different ways, we need to compare them manually side by side sometimes.
-And grid player allows us to do it.
+If we process same video in different ways, we need to compare results of its processing sometimes. And we need to do it manually to see the difference.
+Grid video player allows us to do it.
 
 # How to use
 
 Click "File -> Open Multiple Videos" in menu bar.
 
-Then select upto 4 videos in file dialog.
+Then select upto 4 videos in file dialog (you can also select only one video).
 
 # Future plans
 
